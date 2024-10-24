@@ -107,9 +107,9 @@ func (g *GormRepository) DeleteProject(projectID uint) error {
 }
 
 // RenameProject rename an existing project
-func (g *GormRepository) RenameProject(id uint, name string) error {
+func (g *GormRepository) RenameProject(projectID uint, name string) error {
 	var newProject Project
-	if err := g.DB.Where("id = ?", id).First(&newProject).Error; err != nil {
+	if err := g.DB.Where("id = ?", projectID).First(&newProject).Error; err != nil {
 		return fmt.Errorf("Unable to rename project: %w", err)
 	}
 	newProject.Name = name
