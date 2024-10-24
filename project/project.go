@@ -44,7 +44,7 @@ type Repository interface {
 	GetAllProjects() ([]Project, error)
 	CreateProject(name string) (Project, error)
 	DeleteProject(projectID uint) error
-	RenameProject(projectID uint) error
+	RenameProject(projectID uint, name string) error
 }
 
 // GormRepository holds the gorm DB and is a ProjectRepository
